@@ -18,13 +18,13 @@ def logo_link_check(link_logo):
                     
     if not img_width:
         print("(Поиск по ссылке)Максимальный размер логотипа на десктопе должен быть 170х170", end='', file=open('result.txt', 'a', encoding='UTF-8'))
-    else:    
-        for line in img_width:
-            for height in line.split(':1'):
-                if "max-height: 170px" in height:
-                    print(height)
-                else:
-                    print("(Поиск по ссылке)Максимальный размер логотипа на десктопе должен быть 170х170", end='', file=open('result.txt', 'a', encoding='UTF-8'))
+    # else:    
+    #     for line in img_width:
+    #         for height in line.split(':1'):
+    #             if "max-height: 170px" in height:
+    #                 print(height)
+    #             else:
+    #                 print("(Поиск по ссылке)Максимальный размер логотипа на десктопе должен быть 170х170", end='', file=open('result.txt', 'a', encoding='UTF-8'))
 # Поиск стилей в ссылке логотипа по требованияем на адаптации 140x140
 
     with open("style.css", "r") as openfile:

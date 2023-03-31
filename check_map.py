@@ -9,7 +9,7 @@ try:
                         map_none.append(mosaicMap)
             for line in map_none:
                 for mapClass in line.split(':1'):
-                    if map_class[0] or f"@media (max-width: 991px)" in mapClass:
+                    if map_class or f"@media (max-width: 991px)" in mapClass:
                         check_map_class.append(mapClass)
         for line in check_map_class:
             for checkDisplay in line.split(':1'):

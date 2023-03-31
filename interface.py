@@ -10,11 +10,15 @@ from div_div_logo import *
 from select_string_h1 import *
 from cursor_pointer import *
 from check_map import *
+from check_mapWrapp import *
 from back_page_select.parser_back_page import *
 
 
 
-file_path = 'http://krov.slavik-test.21.oml.ru/'
+
+# file_path = 'http://krov.slavik-test.21.oml.ru/'
+# file_path = 'https://lestorg78.ru/'
+file_path = 'https://mos-936406.oml.ru/'
 
 response = requests.get(file_path, verify=False)
 soup = BeautifulSoup(response.text, features="html.parser")
@@ -36,6 +40,7 @@ h1_main_class = list()
 logo_container_class = list()
 flex_class = list()
 map_class = list()
+MapClassWrapp = list()
 
 
 response = requests.get(file_path)
@@ -57,6 +62,9 @@ try:
    if soup.select_one('.mosaic-map'):
       find_MapClass = soup.select_one('.mosaic-map')['class'][1]
       map_class.append('.' + find_MapClass)
+   if soup.select_one('.mosaic-map').find_parent():
+      find_MapClassWrapp = soup.select_one('.mosaic-map').find_parent()['class'][1]
+      MapClassWrapp.append(find_MapClassWrapp)
 except Exception as ex:
    pass
 ###########################
@@ -110,7 +118,7 @@ try:
          logo_link_check(logo_link_class) 
 except:
    pass
-   
+
    
 check_string_h1(h1_main_class)
 
@@ -119,6 +127,8 @@ parser_back(file_path)
 cursor_pointer_check(flex_class)
 
 check_map_none(map_class)
+
+check_map_wrapp(MapClassWrapp)
 
 time.sleep(2)
 
